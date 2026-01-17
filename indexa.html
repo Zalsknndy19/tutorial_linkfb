@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZHStore Team Portal - Marketing Kit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://www.zhwifi.web.id/favicon.ico">
+    
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --accent: #22c55e;
+            --pill-inactive: #334155;
+            --pill-active: #38bdf8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.6; }
+        
+        .container { max-width: 900px; margin: 0 auto; background: var(--card); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid #334155; }
+
+        header { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
+        .main-title { font-size: 26px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+        .sub-title { font-size: 14px; color: var(--text-muted); }
+
+        /* --- BAGIAN 1: GENERATOR (PILL STYLE) --- */
+        .filter-container { 
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 30px; 
+        }
+        .filter-btn {
+            background: var(--pill-inactive); color: var(--text-muted); border: none; padding: 10px 20px;
+            border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 13px; transition: 0.3s;
+        }
+        .filter-btn:hover { background: #475569; color: #fff; }
+        .filter-btn.active { background: var(--pill-active); color: #0f172a; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
+
+        /* --- BAGIAN 2: TUTORIAL STYLE --- */
+        .tutorial-section { margin-top: 50px; border-top: 2px dashed #334155; padding-top: 30px; }
+        .step-header { font-size: 22px; color: #fff; margin-bottom: 20px; font-weight: 800; }
+        
+        .step-item { margin-bottom: 40px; position: relative; padding-left: 50px; }
+        .step-number { 
+            position: absolute; left: 0; top: 0; width: 35px; height: 35px; 
+            background: var(--primary); color: #000; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px;
+        }
+        .step-title { font-size: 18px; color: var(--primary); font-weight: 700; margin-bottom: 10px; }
+
+        /* CODE BOX */
+        .code-box { 
+            background: #0b1120; border: 1px solid #334155; border-radius: 10px; padding: 15px; 
+            display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;
+        }
+        .code-text { font-family: monospace; color: #a5b4fc; font-size: 13px; word-break: break-all; }
+        .copy-btn {
+            background: var(--accent); color: #000; border: none; padding: 8px 15px;
+            border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: bold; flex-shrink: 0; margin-left: 10px;
+        }
+
+        /* MEDIA BOX */
+        .media-container { margin: 15px 0; border: 1px solid #334155; border-radius: 10px; overflow: hidden; background: #0f172a; text-align: center; }
+        .media-content { max-width: 100%; height: auto; max-height: 400px; display: block; margin: 0 auto; }
+        .media-footer { padding: 10px; background: #1e293b; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+        .save-btn { background: #334155; color: #fff; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .save-btn:hover { background: var(--primary); color: #000; }
+
+        p { margin-bottom: 10px; font-size: 14px; color: var(--text-muted); }
+        strong { color: #fff; }
+        
+        .note { background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b; padding: 10px; color: #fcd34d; font-size: 13px; border-radius: 5px; margin: 10px 0; }
+
+        footer { text-align: center; margin-top: 50px; font-size: 12px; color: #64748b; border-top: 1px solid #334155; padding-top: 20px;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="main-title">ZHStore Team Portal</div>
+        <div class="sub-title">Pusat Materi &amp; Panduan Strategi</div>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- BAGIAN 1: GENERATOR MATERI (UNTUK MEMBER LAMA) -->
+    <!-- ========================================= -->
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="switchGame('Monopoly')">Monopoly GO</button>
+        <button class="filter-btn" onclick="switchGame('CoinMaster')">Coin Master</button>
+        <button class="filter-btn" onclick="switchGame('MLBB')">Mobile Legends</button>
+        <button class="filter-btn" onclick="switchGame('FreeFire')">Free Fire</button>
+        <button class="filter-btn" onclick="switchGame('MatchMasters')">Match Masters</button>
+    </div>
+
+    <!-- DYNAMIC CONTENT AREA -->
+    <div id="material-area">
+        <h3 style="color:#fff; margin-bottom:15px;">📥 Download Aset Promosi</h3>
+        
+        <!-- Video Sampul -->
+        <div class="media-container">
+            <video controls class="media-content" id="vid-cover">
+                <source src="" type="video/mp4">
+            </video>
+            <div class="media-footer">
+                <span>Video Sampul Acara</span>
+                <a href="#" id="dl-vid-cover" class="save-btn" download>Download Video</a>
+            </div>
+        </div>
+
+        <!-- Gambar Postingan -->
+        <div class="media-container">
+            <img src="" class="media-content" id="img-post">
+            <div class="media-footer">
+                <span>Gambar Pancingan</span>
+                <a href="#" id="dl-img-post" class="save-btn" download>Download Gambar</a>
+            </div>
+        </div>
+
+        <p><strong>Judul Acara (Untuk Mention):</strong></p>
+        <div class="code-box"><span class="code-text" id="txt-event-title">...</span><button class="copy-btn">Salin</button></div>
+
+        <p><strong>Deskripsi Acara (Isi Link Kamu):</strong></p>
+        <div class="code-box"><span class="code-text" id="txt-event-desc">...</span><button class="copy-btn">Salin</button></div>
+
+        <p><strong>Caption Postingan Grup:</strong></p>
+        <div class="code-box"><span class="code-text" id="txt-post-caption">...</span><button class="copy-btn">Salin</button></div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- BAGIAN 2: PANDUAN LENGKAP (UNTUK PEMULA) -->
+    <!-- ========================================= -->
+    <div class="tutorial-section">
+        <h2 class="step-header">📚 PANDUAN LENGKAP: CARA SEBAR LINK (ANTI-BANNED)</h2>
+        <p>Ikuti langkah ini satu per satu agar akun Facebook aman dan traffic deras.</p>
+
+        <!-- STEP 1 -->
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <h3 class="step-title" id="acara">Membuat Acara (Event) Facebook</h3>
+            <p>Trik kita adalah <strong>tidak memposting link langsung</strong>, tapi membuat "Acara" agar link terlihat resmi dan aman.</p>
+            
+            <p>1. Buka Facebook, klik menu garis tiga, pilih menu <strong>Acara (Events)</strong>.</p>
+            <div class="media-container"><img src="./media/acara/01.jpg" class="media-content"></div>
+            
+            <p>2. Klik tombol <strong>(+) Buat Acara Baru</strong>. Pilih "Virtual" (Online).</p>
+            <div class="media-container"><img src="./media/acara/03.jpg" class="media-content"></div>
+
+            <p>3. <strong>PENTING:</strong> Isi detail acara dengan data dari Generator di atas.</p>
+            <p>Gunakan Video Sampul yang sudah didownload agar terlihat profesional.</p>
+            <div class="media-container"><img src="./media/acara/04.jpg" class="media-content"></div>
+
+            <p>4. Pada bagian <strong>Tautan Eksternal</strong>, masukkan Link s.id milikmu sendiri.</p>
+            <div class="note">⚠️ Jangan pakai link orang lain! Pakai link s.id/PunyaKamu agar komisinya masuk ke kamu.</div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <h3 class="step-title" id="persiapan">Pemanasan (Warming Up)</h3>
+            <p>Jangan langsung posting! Kita harus memanipulasi algoritma dulu agar acara terlihat ramai.</p>
+            
+            <p>1. Gunakan akun Facebook kedua (akun tumbal/cadangan).</p>
+            <p>2. Buka link acara yang baru kamu buat.</p>
+            <p>3. Klik tombol <strong>"Tertarik" (Interested)</strong> atau "Akan Hadir".</p>
+            <div class="media-container"><img src="./media/persiapan/03.jpg" class="media-content"></div>
+            <p><em>Ini akan memicu notifikasi ke teman-teman akun tersebut, gratis promosi!</em></p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <h3 class="step-title" id="komentar">Strategi Komentar (Parasite Marketing)</h3>
+            <p>Cari postingan orang lain yang sedang ramai (Viral) di grup game.</p>
+            
+            <p>1. Di kolom komentar, ketik simbol <strong>@</strong> lalu ketik judul acara kamu tadi.</p>
+            <p>2. Pilih acara kamu dari daftar yang muncul.</p>
+            <div class="media-container"><img src="./media/komentar/02.jpg" class="media-content"></div>
+            
+            <p>3. Hasilnya akan menjadi link biru yang bisa diklik. Ini jauh lebih aman daripada link http biasa.</p>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-item">
+            <div class="step-number">4</div>
+            <h3 class="step-title" id="posting">Membuat Postingan Sendiri</h3>
+            <p>Jika kamu cukup berani untuk posting di grup, gunakan teknik "Pura-pura Bodoh" atau "Pamer Halus".</p>
+            
+            <p>1. Upload Screenshot Game (Saldo banyak/Hadiah).</p>
+            <p>2. Gunakan Caption yang sudah disediakan di Generator atas.</p>
+            <p>3. <strong>JANGAN TARUH LINK DI CAPTION.</strong> Admin akan langsung hapus.</p>
+            <p>4. Setelah postingan disetujui, baru komen di postingan sendiri: <em>"Linknya di sini ya: (Mention Acara Kamu)"</em>.</p>
+            
+            <div class="media-container"><img src="./media/posting/04.jpg" class="media-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 ZHStore System • <a href="https://store.zhwifi.web.id" style="color:var(--primary)">AI Tools</a>
+    </footer>
+</div>
+
+<script>
+    // --- DATABASE MATERI LENGKAP ---
+    // (Tinggal tambah game baru disini nanti)
+    const gameData = {
+        'Monopoly': {
+            video: './media/simpan/Monopoly_GO/vid_cover.mp4',
+            image: './media/simpan/Monopoly_GO/post_image.jpg',
+            title: '👉 CLAIM 5000 DICE ROLLS HERE 🎲',
+            desc: '🎁 MONOPOLY GO OFFICIAL REWARD 🎁\nLimited time event.\n\n👉 CLAIM LINK:\n[LINK_KAMU]',
+            caption: 'I thought this was a glitch, but I just got 5k dice. 😳\nCheck my comment for the event link! 👇'
+        },
+        'CoinMaster': {
+            video: './media/simpan/Coin_Master/vid_cover.mp4',
+            image: './media/simpan/Coin_Master/post_image.jpg',
+            title: '👉 CLAIM 10K SPINS HERE 🐷',
+            desc: '🎁 COIN MASTER SPIN DROP 🎁\nGet your Spins & Cards now.\n\n👉 CLAIM LINK:\n[LINK_KAMU]',
+            caption: 'Finally completed my card set! 😭\nIf you need spins, check the event below. 👇'
+        },
+        'MLBB': {
+            video: './media/simpan/MLBB/vid_cover.mp4',
+            image: './media/simpan/MLBB/post_image.jpg',
+            title: '👉 CLAIM FREE DIAMONDS 💎',
+            desc: '🎁 MLBB 2026 DIAMOND PARTY 🎁\nClaim 1000+ Diamonds & Skins.\n\n👉 CLAIM LINK:\n[LINK_KAMU]',
+            caption: 'Is this real? I just got 1000 diamonds. 💎\nLink event ada di komentar ya.'
+        },
+        'FreeFire': {
+            video: './media/simpan/Free_Fire/vid_cover.mp4',
+            image: './media/simpan/Free_Fire/post_image.jpg',
+            title: '👉 CLAIM BOOYAH PASS & DIAMONDS 🔥',
+            desc: '🎁 FF 2026 LEGENDARY EVENT 🎁\nClaim Draco AK47 now.\n\n👉 CLAIM LINK:\n[LINK_KAMU]',
+            caption: 'Akhirnya dapet SG Ungu gratis! 🔥\nCek event resmi di komentar.'
+        },
+        'MatchMasters': {
+            video: './media/simpan/Match_Masters/vid_cover.mp4',
+            image: './media/simpan/Match_Masters/post_image.jpg',
+            title: '👉 CLAIM LEGENDARY BOOSTERS 🏆',
+            desc: '🎁 MATCH MASTERS BOOSTER DROP 🎁\nGet your Boosters now.\n\n👉 CLAIM LINK:\n[LINK_KAMU]',
+            caption: 'Best booster ever! 🏆\nCheck comments to get yours.'
+        }
+    };
+
+    function switchGame(gameKey) {
+        // Update Tombol
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Update Konten
+        const data = gameData[gameKey];
+        
+        // Cek jika file ada (prevent broken image)
+        document.getElementById('vid-cover').src = data.video;
+        document.getElementById('dl-vid-cover').href = data.video;
+        document.getElementById('img-post').src = data.image;
+        document.getElementById('dl-img-post').href = data.image;
+
+        document.getElementById('txt-event-title').innerText = data.title;
+        document.getElementById('txt-event-desc').innerText = data.desc;
+        document.getElementById('txt-post-caption').innerText = data.caption;
+    }
+
+    // Default Load
+    switchGame('Monopoly');
+
+    // Script Copy
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const text = this.previousElementSibling.innerText;
+            navigator.clipboard.writeText(text);
+            const original = this.innerText;
+            this.innerText = "Disalin!";
+            this.style.background = "#fff";
+            setTimeout(() => {
+                this.innerText = original;
+                this.style.background = "";
+            }, 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

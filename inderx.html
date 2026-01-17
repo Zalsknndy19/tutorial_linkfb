@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Bagikan Link - Dynamic Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0064e0;
+            --success: #28a745;
+            --dark: black;
+            --light-bg: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--light-bg); color: #333; line-height: 1.6; padding: 4px; }
+        
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        header { text-align: center; margin-bottom: 40px; }
+        .main-title { font-size: 28px; margin-bottom: 20px; color: #111; }
+
+        /* STEP BY STEP */
+        .steps { counter-reset: my-counter; list-style: none; }
+        .step-item { margin-bottom: 50px; position: relative; padding-left: 60px; }
+        .step-item::before {
+            counter-increment: my-counter;
+            content: counter(my-counter);
+            position: absolute; left: 0; top: 0;
+            width: 40px; height: 40px;
+            background: var(--primary); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 18px;
+        }
+
+        .step-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+
+        /* CODE BOX - DYNAMIC COPY */
+        .code-box { 
+            background: var(--dark); border-radius: 10px; padding: 15px; 
+            position: relative; margin: 15px 0;
+        }
+        .code-text { color: #f8f8f2; font-family: monospace; font-size: 14px; flex-grow: 1; white-space: pre-wrap; }
+        .copy-btn {
+            background: #7ecca0; color: #282e2e; border: 1px solid pink;
+            padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: 0.3s;
+            margin-left: 10px;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.3); }
+
+        /* MEDIA BOX - SAVE IMAGE/VIDEO */
+        .media-container { margin: 20px 0; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; background: #fafafa; }
+        .media-content { width: 100%; display: block; max-height: 450px; object-fit: contain; }
+        .media-footer { padding: 10px; background: #eee; display: flex; justify-content: space-between; align-items: center; }
+        .media-info { font-size: 13px; color: #666; }
+        
+        .save-btn {
+            background: var(--primary); color: white; text-decoration: none;
+            padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 5px; transition: 0.3s;
+        }
+        .save-btn:hover { background: #0056c0; transform: translateY(-2px); }
+
+        .link-btn { color: var(--primary); font-weight: 600; text-decoration: none; }
+        .link-btn:hover { text-decoration: underline; }
+
+        footer { text-align: center; margin-top: 50px; color: #888; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="main-title">Panduan membagikan link ke grup Facebook</h1>
+        <p>Ikuti langkah-langkah di bawah ini untuk memulai.</p>
+        <p>(Atau anda bisa mengklik tautan dibawah untuk langsung lompat ke tutorial tertentu)</p>
+        <ol>
+          <li><a href="#acara">Buat Sebuah Acara</a></li>
+          <li><a href="#persiapan">Mempersiapkan Postingan dan Komentar</a></li>
+          <li><a href="#komentar">Memulai Komentar</a></li>
+          <li><a href="#posting">Memulai Postingan</a></li>
+        </ol>
+    </header>
+
+    <div class="steps">
+        
+        <!-- STEP 1: DENGAN COPY BUTTON -->
+        <li class="step-item">
+            <h2 class="step-title" id="acara">Buat Sebuah Acara</h2>
+            <p><strong>~</strong> Buka Facebook anda, kemudian tekan tombol garis tiga dipojok kanan atas.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/01.jpg" alt="./media/acara/01.jpg" class="media-content" id="./media/acara/01.jpg">
+            </div>
+            
+            <p><strong>~</strong> Ketuk bagian <strong>Acara</strong>.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/02.jpg" alt="./media/acara/02.jpg" class="media-content" id="./media/acara/02.jpg">
+            </div>
+            
+            <p><strong>~</strong> Ketuk icon tambah (+) dipojok kanan atas.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/03.jpg" alt="./media/acara/03.jpg" class="media-content" id="./media/acara/03.jpg">
+            </div>
+            
+            <p><strong>~</strong> Di halaman ini masukkan beberapa informasi dengan teks yang sudah disediakan.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/04.jpg" alt="./media/acara/04.jpg" class="media-content" id="./media/acara/04.jpg">
+            </div>
+            
+            <p><strong>~</strong> Unggah dahulu sampul acara dengan mengetuk tombol <strong>Unggah</strong> dan pilih file video ini. (Simpan terlebih dahulu jika file videonya belum ada).</p>
+            <div class="media-container">
+                <video controls class="media-content">
+                    <source src="./media/simpan/vid_acara01.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+                <div class="media-footer">
+                    <span class="media-info">Video Sampul | MP4</span>
+                    <a href="./media/simpan/vid_acara01.mp4" class="save-btn" download="vid_acara01.mp4">
+                        📥 Download Video
+                    </a>
+                </div>
+            </div>
+            
+            <p><strong>~</strong> Isi nama acara dengan teks dibawah:</p>
+            <p>(Judul ini untuk nanti di mention (@teks) ketika Anda membalas komentar)</p>
+            <p hidden>(Judul spesial hari natal)</p>
+            <div class="code-box" hidden>
+                <span class="code-text">👉🏻 🎁 Monopoly GO Christmas Rolls Giveaway 🎄</span>
+                <button class="copy-btn">Salin</button>
+            </div>
+            <p>(Judul hari biasa)</p>
+            <div class="code-box">
+                <span class="code-text">👉 CLICK HERE TO CLAIM FREE NAMA_GAME REWARDS 🎮🎁</span>
+                <button class="copy-btn">Salin</button>
+            </div>
+            <p>(Judul ini untuk nanti di mention (@teks) ketika Anda membuat postingan di grup)</p>
+            <div class="code-box">
+                <span class="code-text">click here</span>
+                <button class="copy-btn">Salin</button>
+            </div>
+            
+            <p><strong>~</strong> Setelah judul siap sekarang tekan <strong>Tambahkan waktu berakhir</strong>, lalu sesuaikan tanggal berakhir agar berlangsung selama tepat 14 hari dengan jam berakhir dikurangi satu menit.</p>
+            <p>(Di tutorial ini tanggal mulainya adalah tanggal 22 Desember 2025 jam 16:00 jadi tanggal berakhirnya adalah tanggal 05 Januari 2025 jam 15:59)</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/05.jpg" alt="./media/acara/05.jpg" class="media-content" id="./media/acara/05.jpg">
+            </div>
+            
+            <p><strong>~</strong> Ketuk <strong>Secara langsung atau virtual?</strong> kemudian pilih <strong>Virtual</strong> dan klik <strong>Tautan Eksternal</strong> kemudian tempelkan link yang telah disediakan dibawah, lalu tekan <strong>Selesai</strong>.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/06.jpg" alt="./media/acara/06.jpg" class="media-content" id="./media/acara/06.jpg">
+            </div>
+            <div class="code-box">
+                <span class="code-text">https://shorturl.at/HXAmb</span>
+                <button class="copy-btn" disabled>Salin</button>
+                </div>
+            <p>(Note: Gunakan link yang diberikan Admin.)</p><br>
+            
+            <p><strong>~</strong> Setelah itu ketuk <strong>Siapa yang bisa melihatnya?</strong> lalu ketuk <strong>Publik</strong>.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/07.jpg" alt="./media/acara/07.jpg" class="media-content" id="./media/acara/07.jpg">
+            </div>
+            
+            <p><strong>~</strong> Isi bagian <strong>Apa saja detailnya?</strong> dengan teks dibawah.</p>
+            <p hidden>(Spesial Hari Natal)</p>
+            <div class="code-box" hidden>
+                <span class="code-text">🎄🎁 Monopoly GO Christmas Rolls Giveaway 🎲
+🎅 FREE Rolls for Christmas Event!
+👉 Collect FREE Rolls now
+[Gunakan_link_dari_admin]
+✨ We’re giving FREE Monopoly GO Rolls to the first 250 players
+as part of our Christmas Holiday Event ❄️
+✅ Follow &amp; click the official link
+🎁 Free rolls – limited Christmas edition
+🎲 Good luck &amp; Merry Christmas!
+🕒 After completing, please wait a few minutes
+System will randomly generate rolls for your MONOPOLY GO account.
+💬 Comment “🎄ROLLS” if you want us to mention you!
+Good luck &amp; Happy Holidays 🎄✨</span>
+                <button class="copy-btn">Salin</button>
+            </div>
+            <p>(Hari biasa)</p>
+            <div class="code-box">
+                <span class="code-text">🎁 CONGRATULATIONS! OFFICIAL GIVEAWAY EVENT IS LIVE 🎁
+Good news for all players — the giveaway system is ACTIVE RIGHT NOW.
+🎮 FREE IN-GAME REWARDS AVAILABLE
+👉 CLAIM HERE (OFFICIAL LINK):
+🔗 [Ganti_Dengan_Link_Dari_Admin_Tamvans]
+⚠️ LIMITED ACCESS
+Rewards are distributed automatically to the first 250 participants only.
+Once the quota is reached, the event will be closed immediately.
+✅ Click the official link
+✅ Complete the quick steps
+✅ Our system will randomly generate and deliver your reward
+⏳ Processing time: a few minutes after completion
+The faster you join, the higher your chance to receive maximum rewards.
+🚨 DO NOT WAIT. DO NOT ASK IF IT’S STILL AVAILABLE.
+👉 COLLECT NOW BEFORE THE EVENT ENDS:
+🔗 [Ganti_Dengan_Link_Dari_Admin_Tamvans]
+🍀 Good luck — and don’t miss your chance.</span><br>
+                <button class="copy-btn">Salin</button>
+            </div>
+            <p><strong>~</strong> Ketuk menu <strong>Pengaturan tambahan</strong> yang baru muncul,</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/08.jpg" alt="./media/acara/08.jpg" class="media-content" id="./media/acara/08.jpg">
+            </div>
+            <p>lalu aktifkan beberapa opsi seperti gambar dibawah.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/09.jpg" alt="./media/acara/09.jpg" class="media-content" id="./media/acara/09.jpg">
+            </div>
+            <p><strong>~</strong> Periksa kembali semuanya untuk memastikan, jika dipastikan sudah sesuai maka ketuk tombol <strong>Buat Acara</strong> untuk menyimpannya, lalu ketuk <strong>Kelola</strong> kemudian pilih <strong>Salin tautan acara</strong>, sekarang buka aplikasi WhatsApp  Anda dan pilih kontak siapapun untuk mengirimkan tautan yang baru saja disalin.</p>
+            <p>(Disini saya menggunakan kontak kedua saya <strong>Me XL</strong>)</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/10.jpg" alt="./media/acara/10.jpg" class="media-content" id="./media/acara/10.jpg">
+            </div>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/11.jpg" alt="./media/acara/11.jpg" class="media-content" id="./media/acara/11.jpg">
+            </div>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/acara/12.jpg" alt="./media/acara/12.jpg" class="media-content" id="./media/acara/12.jpg">
+            </div>
+        </li>
+
+        <!-- STEP 2: DENGAN IMAGE & SAVE BUTTON -->
+        <li class="step-item">
+            <h2 class="step-title" id="persiapan">Mempersiapkan Postingan dan Komentar</h2>
+            <p><strong>~</strong> Login terlebih dahulu ke akun Facebook kedua Anda, kemudian buka kembali aplikasi WhatsApp dan buka kontak yang tadi telah dikirim tautan lalu klik salah satu tautan tersebut.</p>
+            <p>(<a href="https://facebook.com/events/s/-claim-here-to-grab-800k-dice-/902926025492326/">Atau klik ini untuk mention di komentar</a></p>
+            <p><a href="https://facebook.com/events/s/click-here/3906513592934239/">Ini untuk di mention di postingan</a>)</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/persiapan/01.jpg" alt="./media/persiapan/01.jpg" class="media-content" id="./media/persiapan/01.jpg">
+            </div>
+            
+            <p><strong>~</strong> Setelah halaman acara terbuka ketuk <strong>Akan Hadir</strong> kemudian tutup popup yang muncul.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/persiapan/04.jpg" alt="./media/persiapan/04.jpg" class="media-content" id="./media/persiapan/04.jpg">
+            </div>
+            
+            <p><strong>~</strong> Ketuk kembali <strong>Akan Hadir</strong> lalu pilih <strong>Tertarik</strong>.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/persiapan/03.jpg" alt="./media/persiapan/03.jpg" class="media-content" id="./media/persiapan/03.jpg">
+            </div>
+            
+            <p><strong>~</strong> Buka kembali kontak WhatsApp yang tadi dikirim link dan ketuk link kedua.</p>
+            <p><strong>~</strong> Setelah halaman acara terbuka ketuk <strong>Akan Hadir</strong> kemudian tutup popup yang muncul.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/persiapan/02.jpg" alt="./media/persiapan/02.jpg" class="media-content" id="./media/persiapan/02.jpg">
+            </div>
+            
+            <p><strong>~</strong> Ketuk kembali <strong>Akan Hadir</strong> lalu pilih <strong>Tertarik</strong>.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/persiapan/03.jpg" alt="./media/persiapan/03.jpg" class="media-content" id="./media/persiapan/03.jpg">
+            </div>
+        </li>
+
+        <!-- STEP 3: DENGAN VIDEO & SAVE BUTTON -->
+        <li class="step-item">
+            <h2 class="step-title" id="komentar">Memulai Komentar</h2>
+            <p><strong>~</strong> Anda harus mencari postingan seperti gambar dibawah ini untuk memulai berkomentar, postingan yang berisi <strong>PUT Thanks...</strong>, <strong>PUT Free...</strong>, <strong>PUT Done...</strong> ataupun postingan yang berbau membagikan item secara gratis, lalu buka komentar postingan tersebut.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/komentar/01.jpg" alt="./media/komentar/01.jpg" class="media-content" id="./media/komentar/01.jpg">
+            </div>
+            
+            <p><strong>~</strong> Cari komentar terbaru (maksimal dibawah 1 jam) atau agar lebih cepat ubah filter komentar (biasanya bertuliskan <strong>Relevan</strong> atau <strong>Semua Komentar</strong>) menjadi <strong>Terbaru</strong>, lalu tekan tombol <strong>Balas</strong> dan ketikkan <strong>@claim</strong>, akan muncul beberapa popup kemudian pilih <strong>👉🏻 CLAIM HERE TO GRAB 800k DICE ROLLS AND STICKER🎲🎁</strong> (ini adalah acara yang telah Anda buat tadi).</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/komentar/02.jpg" alt="./media/komentar/02.jpg" class="media-content" id="./media/komentar/02.jpg">
+            </div>
+            
+            <p><strong>~</strong> Setelah komentar berubah menjadi warna biru tekan saja tombol kirim, nanti komentar Anda akan muncul di notifikasi akun yang telah Anda komentari.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/komentar/03.jpg" alt="./media/komentar/03.jpg" class="media-content" id="./media/komentar/03.jpg">
+            </div>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/komentar/04.jpg" alt="./media/komentar/04.jpg" class="media-content" id="./media/komentar/04.jpg">
+            </div>
+            
+            <div class="media-container" hidden>
+                <video controls class="media-content">
+                    <source src="movie.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+                <div class="media-footer">
+                    <span class="media-info">Video Tutorial | MP4</span>
+                    <a href="movie.mp4" download="Tutorial_Deploy.mp4" class="save-btn">
+                        📥 Download Video
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- STEP 4: LINK -->
+        <li class="step-item">
+            <h2 class="step-title" id="posting">Memulai Postingan</h2>
+            <p><strong>~</strong> Sekarang adalah babak penentuan apakah akun Anda cukup <strong>Ajaib</strong> untuk bisa memposting di grup dan lolos persetujuan Admin Grup.</p>
+            <p><strong>~</strong> Cari grup yang ingin Anda posting, lalu ketuk <strong>Tulis sesuatu...</strong> dan isi dengan informasi yang telah disediakan dibawah.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/posting/01.jpg" alt="./media/posting/01.jpg" class="media-content" id="./media/posting/01.jpg">
+            </div>
+            <p><strong>~</strong> Isi deskripsinya dengan teks dibawah (salin terlebih dahulu teksnya).</p>
+            <p>(Teks untuk postingan spesial hari natal)</p>
+            <div class="code-box">
+                <span class="code-text">PUT “Thanks” 🎁 – Receive Immediately
+🎄 Monopoly GO Christmas Special Gift
+👇 Check My First Comment</span>
+                <button class="copy-btn">Salin</button>
+            </div>
+            <p>(Teks untuk postingan hari biasa)</p>
+            <div class="code-box">
+                <span class="code-text">PUT Thanks receive IMMEDIATELY
+Last day gift
+Check My First Comment</span>
+                <button class="copy-btn">Salin</button>
+            </div>
+            
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/posting/02.jpg" alt="./media/posting/02.jpg" class="media-content" id="./media/posting/02.jpg">
+            </div>
+            <p><strong>~</strong> Simpan terlebih dahulu gambar-gambar dibawah ini (lewati tahap ini jika Anda sudah punya gambarnya).</p>
+            <p>(Untuk postingan spesial hari natal)</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/simpan/christmas01.png" alt="./media/simpan/christmas01.jpg" class="media-content" id="./media/simpan/christmas01.jpg">
+                <div class="media-footer">
+                    <span class="media-info">Format: JPG | Size: -KB</span>
+                    <a href="./media/simpan/christmas01.jpg" class="save-btn" download="christmas01.jpg">
+                        💾 Simpan Gambar
+                    </a>
+                </div>
+            </div>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/simpan/christmas02.png" alt="./media/simpan/christmas02.png" class="media-content" id="./media/simpan/christmas02.png">
+                <div class="media-footer">
+                    <span class="media-info">Format: JPG | Size: -KB</span>
+                    <a href="./media/simpan/christmas02.png" class="save-btn" download="christmas02.png">
+                        💾 Simpan Gambar
+                    </a>
+                </div>
+            </div>
+            <p>(Untuk postingan hari biasa)</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/simpan/gb_upload01.jpg" alt="./media/simpan/gb_upload01.jpg" class="media-content" id="./media/simpan/gb_upload01.jpg">
+                <div class="media-footer">
+                    <span class="media-info">Format: JPG | Size: -KB</span>
+                    <a href="./media/simpan/gb_upload01.jpg" class="save-btn" download="gb_upload01.jpg">
+                        💾 Simpan Gambar
+                    </a>
+                </div>
+            </div>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/simpan/gb_upload02.jpg" alt="./media/simpan/gb_upload02.jpg" class="media-content" id="./media/simpan/gb_upload02.jpg">
+                <div class="media-footer">
+                    <span class="media-info">Format: JPG | Size: -KB</span>
+                    <a href="./media/simpan/gb_upload02.jpg" class="save-btn" download="gb_upload02.jpg">
+                        💾 Simpan Gambar
+                    </a>
+                </div>
+            </div>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/simpan/gb_upload03.jpg" alt="./media/simpan/gb_upload03.jpg" class="media-content" id="./media/simpan/gb_upload03.jpg">
+                <div class="media-footer">
+                    <span class="media-info">Format: JPG | Size: -KB</span>
+                    <a href="./media/simpan/gb_upload03.jpg" class="save-btn" download="gb_upload03.jpg">
+                        💾 Simpan Gambar
+                    </a>
+                </div>
+            </div>
+            
+            <p><strong>~</strong> Pilih tombol <strong>Media</strong> dipojok kiri bawah seperti di gambar berikut, lalu pilih salahsatu gambar yang telah disimpan barusan.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/posting/03.jpg" alt="./media/posting/03.jpg" class="media-content" id="./media/posting/03.jpg">
+            </div>
+            <p><strong>~</strong> Setelah semuanya disiapkan sekarang tinggal menekan tombol posting dengan harapan semoga Admin Grup mengizinkan postingan Anda, tunggu saja sampai adaa notifikasi bahwa postingan Anda telah disetujui Admin.</p>
+            <p><strong>~</strong> Setelah Anda mendapatkan notifikasi persetujuan postingan, sekarang Anda tinggal menambahkan komentar di postingan Anda dengan mengetik <strong>@claim</strong> kemudian pilih <strong>👉🏻 CLAIM HERE TO GRAB 800k DICE ROLLS AND STICKER🎲🎁</strong> yang muncul dari popup (caranya sama seperti proses <strong>Memulai Komentar</strong> tadi, klik <a href="#komentar">disini</a> untuk melihat).</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/posting/04.jpg" alt="./media/posting/04.jpg" class="media-content" id="./media/posting/04.jpg">
+            </div>
+            
+            <h2 class="step-title">Memulai Postingan versi 2 (<strong>Advanced Magical Method</strong>)</h2>
+            <p><strong>~</strong> Jika akun Anda benar-benar <strong>Ajaib dan cukup Beruntung untuk bisa lolos persetujuan Admin Grup</strong> Anda bisa melakukan postingan tanpa perlu menambahkan komentar Anda sendiri di postingan Anda.</p>
+            <p><strong>~</strong> Lakukan seperti proses <a href="posting"><strong>Memulai Postingan</strong></a>, untuk teksnya Anda tinggal menggunakan teks dibawah.</p>
+            <div class="code-box">
+                <span class="code-text">PUT Thanks receive IMMEDIATELY
+Last day gift </span>
+                <button class="copy-btn">Salin</button>
+            </div>
+            <p><strong>~</strong> Kemudian ketikkan <strong>@click</strong> dan nanti akan ada popup <strong>click here</strong> yang muncul kemudian pilih itu (ini adalah acara kedua yang telah kamu buat tadi).</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/posting/06.jpg" alt="./media/posting/06.jpg" class="media-content" id="./media/posting/06.jpg">
+            </div>
+            
+            <p><strong>~</strong> Setelah popup diklik pilih gambar yang akan diposting persis seperti step sebelumnya kemudian tekan tombol posting, Anda tidak perlu menambahkan komentar apapun di postingan ini (setelah disetujui Admin) karena anggota lain bisa langsung mengklik <strong>click here</strong>, sekarang Anda tinggal bersantai sambil menunggu pundi-pundi Dollar 💵💰 masuk ke akun <strong>Sub</strong> Anda, semoga berhasil.</p>
+            <div class="media-container">
+                <!-- Ganti 'path-ke-gambar.jpg' dengan file Anda -->
+                <img src="./media/posting/05.jpg" alt="./media/posting/05.jpg" class="media-content" id="./media/posting/05.jpg">
+            </div>
+            <a href="https://store.zhwifi.web.id/prompt" target="_blank" class="link-btn">AI Editor Foto Keren Disini&rarr;</a>
+            
+        </li>
+
+    </div>
+
+    <footer>
+        &copy; 2025 - made with ♥️ by Rizal Hakim a.k.a <a href="https://store.zhwifi.web.id">ZHStore</a>
+    </footer>
+</div>
+
+<script>
+    // MEKANISME DYNAMIC COPY
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // Cari elemen .code-text yang satu kotak dengan tombol ini
+            const parent = this.closest('.code-box');
+            const textToCopy = parent.querySelector('.code-text').innerText;
+            
+            // Proses Salin
+            const el = document.createElement('textarea');
+            el.value = textToCopy;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            // Efek Feedback
+            const originalText = this.innerText;
+            this.innerText = "Tersalin!";
+            this.style.background = "#28a745";
+            
+            setTimeout(() => {
+                this.innerText = originalText;
+                this.style.background = "rgba(255,255,255,0.1)";
+            }, 2000);
+        });
+    });
+
+    // Catatan: Tombol "Save/Download" bekerja berdasarkan atribut 'download' 
+    // pada tag <a>. Pastikan file gambar/video berada di folder yang sama 
+    // atau server yang sama agar fungsi download berjalan otomatis.
+</script>
+
+</body>
+</html>
