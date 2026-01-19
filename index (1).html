@@ -89,7 +89,6 @@
     <div style="background: #0f172a; padding: 20px; border-radius: 15px; border: 1px solid var(--primary); margin-bottom: 40px;">
         <h3 style="text-align:center; color:#fff; margin-bottom:15px;">🚀 GENERATOR MATERI PROMOSI</h3>
         <div class="filter-container">
-            <p>(Klik kembali <strong>Judul Game</strong> untuk mendapatkan gambar/video yang berbeda)</p>
             <button class="filter-btn active" onclick="switchGame('Monopoly')">Monopoly GO</button>
             <button class="filter-btn" onclick="switchGame('CoinMaster')">Coin Master</button>
             <button class="filter-btn" onclick="switchGame('DiceDreams')">Dice Dreams</button>
@@ -127,14 +126,14 @@
                 <button class="copy-btn">Salin</button>
             </div>
 
-            <p><strong>4. Deskripsi Acara:</strong><br>(Ubah tulisan <strong>Ganti_Dengan_Link_Dari_Admin_Tamvan</strong> dengan link yang diberikan Admin).</p>
+            <p><strong>4. Deskripsi Acara:</strong></p>
             <div class="code-box">
                 <span class="code-text" id="txt-event-desc">...</span>
                 <button class="copy-btn">Salin</button>
             </div>
-            <p><strong>5. Contoh Caption Postingan:</strong><br>(Kamu bisa membuat Caption Postingan versi kamu sendiri agar postingan kamu tidak terdeteksi spam oleh Grup dan sistem Facebook, saya menyarankan agar Caption Postingan diterjemahkan ke bahasa lain misalkan Bahasa Italia atau Prancis agar postingan kamu lebih mudah tembus).</p>
+            <p><strong>5. Contoh Caption Postingan:</strong><br>(Saya telah menerjemahkannya kedalam bahasa Italia agar postingan mudah tembus).</p>
             <div class="code-box">
-                <span class="code-text" id="txt-post-caption">Per chi non lo avesse ancora, può procurarselo qui. Per riceverlo, lascia "Grazie".</span>
+                <span class="code-text" id="txt">Per chi non lo avesse ancora, può procurarselo qui. Per riceverlo, lascia "Grazie".</span>
                 <button class="copy-btn">Salin</button>
             </div>
         </div>
@@ -249,17 +248,20 @@
 </div>
 
 <script>
-    // --- DATABASE MATERI LENGKAP DENGAN RANDOMIZER ---
+    // --- DATABASE MATERI LENGKAP ---
+    // Pastikan file gambar/video ada di folder: ./media/simpan/Nama_Game/
     const universalDesc = `🎁 CONGRATULATIONS! OFFICIAL GIVEAWAY EVENT IS LIVE 🎁
 Good news for all players — the giveaway system is ACTIVE RIGHT NOW.
 
 🎮 FREE IN-GAME REWARDS AVAILABLE
+👉 CLAIM HERE (OFFICIAL LINK):
+🔗 [Ganti_Dengan_Link_Dari_Admin_Tamvan]
 
 ⚠️ LIMITED ACCESS
 Rewards are distributed automatically to the first 250 participants only.
 Once the quota is reached, the event will be closed immediately.
 
-✅ Click the official link at the bottom 
+✅ Click the official link
 ✅ Complete the quick steps
 ✅ Our system will randomly generate and deliver your reward
 
@@ -275,107 +277,79 @@ The faster you join, the higher your chance to receive maximum rewards.
     const gameData = {
         'Monopoly': {
             folder: 'Monopoly_GO',
-            // DAFTARKAN NAMA FILE KAMU DISINI (Bebas ekstensi)
-            videos: ['vid_cover.mp4'], 
-            images: ['post_image.jpg', 'gb01.jpg', 'gb02.jpg', 'gb03.jpg', 'gb04.jpg', 'gb05.png', 'gb06.jpg', 'gb07.jpg', 'gb08.png', 'gb09.jpg', 'gb10.jpg', 'gb11.jpg', 'gb12.jpg'],
             title: '👉 CLICK HERE TO CLAIM FREE MONOPOLY GO DICE ROLLS 🎲',
             caption: 'PUT “Thanks” 🎁 – Receive Immediately\n🎄 Monopoly GO Special Gift\n👇 Check My First Comment'
         },
         'CoinMaster': {
             folder: 'Coin_Master',
-            videos: ['vid_cover.mp4', 'vid1.mp4'],
-            images: ['post_image.jpg', 'card.png', 'FB_IMG_1768730155497.jpg', 'FB_IMG_1768034528368.jpg', 'gb.jpeg', 'hafqg.jpg'],
             title: '👉 CLICK HERE TO CLAIM FREE COIN MASTER SPINS 🐷',
             caption: 'PUT “Spin” 🎁 – Receive Immediately\n🐷 Coin Master Special Event\n👇 Check My First Comment'
         },
         'DiceDreams': {
             folder: 'Dice_Dreams',
-            videos: ['vid_cover.mp4'],
-            images: ['post_image.jpg', 'FB_IMG_1766832161215.jpg', 'img_2_1766831864442.jpg'],
             title: '👉 CLICK HERE TO CLAIM FREE DICE DREAMS ROLLS 🎲',
             caption: 'PUT “Rolls” 🎁 – Receive Immediately\n🎲 Dice Dreams Event\n👇 Check My First Comment'
         },
         'MatchMasters': {
             folder: 'Match_Masters',
-            videos: ['vid_cover.mp4'],
-            images: ['post_image.jpg', 'FB_IMG_1768650742652.jpg', 'FB_IMG_1766881001721.jpg', 'FB_IMG_1766880994273.jpg', 'IMG_20251228_071318.jpg', 'IMG_20251228_071258.jpg', 'IMG_20251228_071233.jpg'],
             title: '👉 CLICK HERE TO CLAIM MATCH MASTERS BOOSTERS 🏆',
             caption: 'PUT “Booster” 🎁 – Receive Immediately\n🏆 Match Masters Event\n👇 Check My First Comment'
         },
+        'Roblox': {
+            folder: 'ROBLOX',
+            title: '👉 CLICK HERE TO CLAIM ROBLOX ROBUX 🟥',
+            caption: 'PUT “Robux” 🎁 – Receive Immediately\n🟥 Roblox Special Gift\n👇 Check My First Comment'
+        },
         'RoyalMatch': {
             folder: 'Royal_Match',
-            videos: ['vid_cover.mp4'],
-            images: ['post_image.jpg'],
             title: '👉 CLICK HERE TO CLAIM ROYAL MATCH COINS 🪙🪙',
             caption: 'PUT “Help” 🎁 – Receive Immediately\n❤️ Royal Match Event\n👇 Check My First Comment'
         },
         'AnimalsCoins': {
             folder: 'Animals_Coins',
-            videos: ['vid_cover.mp4', 'vid01.mp4', 'vid02.mp4'],
-            images: ['post_image.jpg', 'animal-energy-poster-desktop (2).png', 'FB_IMG_1768650002964.jpg', 'FB_IMG_1768331512891.jpg', 'FB_IMG_1768331492047.jpg', 'FB_IMG_1768225924852 (1).jpg', 'FB_IMG_1767595958192.jpg'],
             title: '👉 CLICK HERE TO CLAIM FREE ANIMALS AND COINS ENERGY ⚡🐶',
             caption: 'PUT “ENERGY” 🎁 – Receive Immediately\n🐶 Animals & Coins Event\n👇 Check My First Comment'
         }
     };
 
     function switchGame(gameKey) {
-        // 1. Update UI Tombol
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        // Mencari tombol yang diklik berdasarkan teks jika dipanggil secara manual
-        const activeBtn = Array.from(document.querySelectorAll('.filter-btn')).find(b => b.innerText.includes(gameKey) || b.getAttribute('onclick').includes(gameKey));
-        if(activeBtn) activeBtn.classList.add('active');
+        event.target.classList.add('active');
 
         const data = gameData[gameKey];
-        const baseVideoPath = `./media/simpan/${data.folder}/video/`;
-        const baseImagePath = `./media/simpan/${data.folder}/image/`;
+        const basePath = `./media/simpan/${data.folder}/`;
 
-        // 2. RANDOMIZER LOGIC
-        const randomVideo = data.videos[Math.floor(Math.random() * data.videos.length)];
-        const randomImage = data.images[Math.floor(Math.random() * data.images.length)];
+        // Update Media Paths
+        document.getElementById('vid-cover').src = basePath + 'vid_cover.mp4';
+        document.getElementById('dl-vid-cover').href = basePath + 'vid_cover.mp4';
+        document.getElementById('img-post').src = basePath + 'post_image.jpg';
+        document.getElementById('dl-img-post').href = basePath + 'post_image.jpg';
 
-        // 3. Update Video
-        const vidElem = document.getElementById('vid-cover');
-        vidElem.src = baseVideoPath + randomVideo;
-        document.getElementById('dl-vid-cover').href = baseVideoPath + randomVideo;
-        vidElem.load(); // Paksa reload video baru
-
-        // 4. Update Image
-        const imgElem = document.getElementById('img-post');
-        imgElem.src = baseImagePath + randomImage;
-        document.getElementById('dl-img-post').href = baseImagePath + randomImage;
-
-        // 5. Update Texts
+        // Update Texts
         document.getElementById('txt-event-title').innerText = data.title;
         document.getElementById('txt-event-desc').innerText = universalDesc;
         document.getElementById('txt-post-caption').innerText = data.caption;
     }
 
-    // --- FIX TOMBOL SALIN (ROBUST VERSION) ---
-    document.addEventListener('click', function (e) {
-        if (e.target && e.target.classList.contains('copy-btn')) {
-            const btn = e.target;
-            // Mencari teks di dalam box yang sama dengan tombol
-            const textToCopy = btn.closest('.code-box').querySelector('.code-text').innerText;
+    // Default Load
+    switchGame('Monopoly');
 
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalText = btn.innerText;
-                btn.innerText = "Tersalin!";
-                btn.style.background = "#fff";
-                btn.style.color = "#000";
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = "";
-                    btn.style.color = "";
-                }, 1500);
-            }).catch(err => {
-                alert("Gagal menyalin. Silakan salin manual.");
-            });
-        }
+    // Copy Script
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const text = this.previousElementSibling.innerText;
+            navigator.clipboard.writeText(text);
+            const original = this.innerText;
+            this.innerText = "Disalin!";
+            this.style.background = "#fff";
+            this.style.color = "#000";
+            setTimeout(() => {
+                this.innerText = original;
+                this.style.background = "";
+                this.style.color = "";
+            }, 1500);
+        });
     });
-
-    // Load Default (Monopoly)
-    window.onload = () => switchGame('Monopoly');
 </script>
 
 </body>
