@@ -90,13 +90,15 @@
         <h3 style="text-align:center; color:#fff; margin-bottom:15px;">🚀 GENERATOR MATERI PROMOSI</h3>
         <div class="filter-container">
             <p>(Klik kembali <strong>Judul Game</strong> untuk mendapatkan gambar/video yang berbeda)</p>
-            <button class="filter-btn active" onclick="switchGame('Monopoly')">Monopoly GO</button>
+            <button class="filter-btn active" onclick="switchGame('AnimalsCoins')">Animals &amp; Coins</button>
+            <button class="filter-btn" onclick="switchGame('BingoBlitz')">Bingo Blitz</button>
             <button class="filter-btn" onclick="switchGame('CoinMaster')">Coin Master</button>
             <button class="filter-btn" onclick="switchGame('DiceDreams')">Dice Dreams</button>
             <button class="filter-btn" onclick="switchGame('MatchMasters')">Match Masters</button>
+            <button class="filter-btn" onclick="switchGame('Monopoly')">Monopoly GO</button>
             <button class="filter-btn" onclick="switchGame('Roblox')" hidden>ROBLOX</button>
             <button class="filter-btn" onclick="switchGame('RoyalMatch')">Royal Match</button>
-            <button class="filter-btn" onclick="switchGame('AnimalsCoins')">Animals &amp; Coins</button>
+            <button class="filter-btn" onclick="switchGame('TravelTown')">Travel Town</button>
         </div>
 
         <!-- DYNAMIC CONTENT -->
@@ -273,13 +275,19 @@ The faster you join, the higher your chance to receive maximum rewards.
 🍀 Good luck — and don’t miss your chance.`;
 
     const gameData = {
-        'Monopoly': {
-            folder: 'Monopoly_GO',
-            // DAFTARKAN NAMA FILE KAMU DISINI (Bebas ekstensi)
-            videos: ['vid_cover.mp4'], 
-            images: ['post_image.jpg', 'gb01.jpg', 'gb02.jpg', 'gb03.jpg', 'gb04.jpg', 'gb05.png', 'gb06.jpg', 'gb07.jpg', 'gb08.png', 'gb09.jpg', 'gb10.jpg', 'gb11.jpg', 'gb12.jpg'],
-            title: '👉 CLICK HERE TO CLAIM FREE MONOPOLY GO DICE ROLLS 🎲',
-            caption: 'PUT “Thanks” 🎁 – Receive Immediately\n🎄 Monopoly GO Special Gift\n👇 Check My First Comment'
+        'AnimalsCoins': {
+            folder: 'Animals_Coins',
+            videos: ['vid_cover.mp4', 'vid01.mp4', 'vid02.mp4'],
+            images: ['post_image.jpg', 'animal-energy-poster-desktop (2).png', 'FB_IMG_1768650002964.jpg', 'FB_IMG_1768331512891.jpg', 'FB_IMG_1768331492047.jpg', 'FB_IMG_1768225924852 (1).jpg', 'FB_IMG_1767595958192.jpg'],
+            title: '👉 CLICK HERE TO CLAIM FREE ANIMALS AND COINS ENERGY ⚡🐶',
+            caption: 'PUT “ENERGY” 🎁 – Receive Immediately\n🐶 Animals & Coins Event\n👇 Check My First Comment'
+        },
+        'BingoBlitz': {
+            folder: 'Bingo_Blitz',
+            videos: ['vid01.mp4', 'vid02.mp4', 'vid03.mp4'],
+            images: ['post01.jpg', 'post02.jpg', 'post03.jpg', 'post04.jpg'],
+            title: '👉 CLICK HERE TO CLAIM FREE BINGO BLITZ CREDITS 🎁💰',
+            caption: 'PUT “Amazing” 🎁 – Receive Immediately\n😼 Bingo Blitz Event\n👇 Check My First Comment'
         },
         'CoinMaster': {
             folder: 'Coin_Master',
@@ -302,6 +310,14 @@ The faster you join, the higher your chance to receive maximum rewards.
             title: '👉 CLICK HERE TO CLAIM MATCH MASTERS BOOSTERS 🏆',
             caption: 'PUT “Booster” 🎁 – Receive Immediately\n🏆 Match Masters Event\n👇 Check My First Comment'
         },
+        'Monopoly': {
+            folder: 'Monopoly_GO',
+            // DAFTARKAN NAMA FILE KAMU DISINI (Bebas ekstensi)
+            videos: ['vid_cover.mp4'], 
+            images: ['post_image.jpg', 'gb01.jpg', 'gb02.jpg', 'gb03.jpg', 'gb04.jpg', 'gb05.png', 'gb06.jpg', 'gb07.jpg', 'gb08.png', 'gb09.jpg', 'gb10.jpg', 'gb11.jpg', 'gb12.jpg'],
+            title: '👉 CLICK HERE TO CLAIM FREE MONOPOLY GO DICE ROLLS 🎲',
+            caption: 'PUT “Thanks” 🎁 – Receive Immediately\n🎄 Monopoly GO Special Gift\n👇 Check My First Comment'
+        },
         'RoyalMatch': {
             folder: 'Royal_Match',
             videos: ['vid_cover.mp4'],
@@ -309,12 +325,19 @@ The faster you join, the higher your chance to receive maximum rewards.
             title: '👉 CLICK HERE TO CLAIM ROYAL MATCH COINS 🪙🪙',
             caption: 'PUT “Help” 🎁 – Receive Immediately\n❤️ Royal Match Event\n👇 Check My First Comment'
         },
-        'AnimalsCoins': {
-            folder: 'Animals_Coins',
-            videos: ['vid_cover.mp4', 'vid01.mp4', 'vid02.mp4'],
-            images: ['post_image.jpg', 'animal-energy-poster-desktop (2).png', 'FB_IMG_1768650002964.jpg', 'FB_IMG_1768331512891.jpg', 'FB_IMG_1768331492047.jpg', 'FB_IMG_1768225924852 (1).jpg', 'FB_IMG_1767595958192.jpg'],
-            title: '👉 CLICK HERE TO CLAIM FREE ANIMALS AND COINS ENERGY ⚡🐶',
-            caption: 'PUT “ENERGY” 🎁 – Receive Immediately\n🐶 Animals & Coins Event\n👇 Check My First Comment'
+        'TravelTown': {
+            folder: 'Travel_Town',
+            videos: ['vid01.mp4', 'vid02.mp4', 'vid03.mp4', 'vid04.mp4', 'vid05.mp4'],
+            images: ['post02.jpg', 'post03.jpg', 'post04.jpg', 'post05.jpg'],
+            title: '👉 CLICK HERE TO CLAIM FREE TRAVEL TOWN ENERGY ⚡🦾',
+            caption: 'PUT “Strong” 🎁 – Receive Immediately\n🌇 Travel Town Event\n👇 Check My First Comment'
+        },
+        'Template': {
+            folder: 'Folder_Game',
+            videos: ['vid01.mp4', 'vid02.mp4', 'vid03.mp4', 'vid04.mp4', 'vid05.mp4'],
+            images: ['post01.jpg', 'post02.jpg', 'post03.jpg', 'post04.jpg', 'post05.jpg'],
+            title: '👉 CLICK HERE TO CLAIM FREE Judul_Game Reward_Game emoji_emoji',
+            caption: 'PUT “Reward_Game” 🎁 – Receive Immediately\nemoji_emoji Judul_Game Event\n👇 Check My First Comment'
         }
     };
 
@@ -375,7 +398,7 @@ The faster you join, the higher your chance to receive maximum rewards.
     });
 
     // Load Default (Monopoly)
-    window.onload = () => switchGame('Monopoly');
+    window.onload = () => switchGame('AnimalsCoins');
 </script>
 
 </body>
